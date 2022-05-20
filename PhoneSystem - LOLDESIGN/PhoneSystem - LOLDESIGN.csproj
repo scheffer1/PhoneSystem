@@ -34,16 +34,20 @@
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
         <None Remove="DataDB\**" />
         <Content Remove="DataDB\**" />
+        <None Remove="ClientApp\src\app\counter\**" />
+        <Content Remove="ClientApp\src\app\counter\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="Models\Plan.cs" />
       <Compile Remove="Models\Client.cs" />
       <Compile Remove="DataDB\**" />
+      <Compile Remove="ClientApp\src\app\counter\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="DataDB\**" />
+      <EmbeddedResource Remove="ClientApp\src\app\counter\**" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

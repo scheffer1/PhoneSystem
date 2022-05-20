@@ -8,6 +8,8 @@
 builder.Services.AddControllersWithViews();
     builder.Services.AddDbContext<DataContext>();
     builder.Services.AddScoped<IRepository,Repository>();
+    builder.Services.AddCors();
+    
     var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,7 +22,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
+    app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
     app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
